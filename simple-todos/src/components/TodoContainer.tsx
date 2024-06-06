@@ -20,6 +20,12 @@ export const TodoContainer: React.FC = () => {
     setTodos(newTodos);
   };
 
+  const editTodo = (index: number, newText: string) => {
+    const newTodos = [...todos];
+    newTodos[index].text = newText;
+    setTodos(newTodos);
+  };
+
   const deleteCompleted = () => {
     setTodos(todos.filter((todo) => !todo.done));
   };
@@ -39,7 +45,12 @@ export const TodoContainer: React.FC = () => {
         </div>
         {filteredTodos.map((todo, index) => (
           <div className="todo" key={index}>
-            <TodoItem index={index} todo={todo} toggleTodo={toggleTodo} />
+            <TodoItem
+              index={index}
+              todo={todo}
+              toggleTodo={toggleTodo}
+              editTodo={editTodo}
+            />
           </div>
         ))}
         <div className="todo">

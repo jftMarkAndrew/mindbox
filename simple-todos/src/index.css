@@ -77,6 +77,7 @@ body {
 .todo-item {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .todo-checkbox {
@@ -91,6 +92,21 @@ body {
 .todo-text.completed {
   text-decoration: line-through;
   color: gray;
+}
+
+.todo-edit-input {
+  flex-grow: 1;
+  border: none;
+  padding: 0.5em;
+  font-size: 1em;
+  font-family: inherit;
+  background: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.todo-edit-input:focus {
+  outline: none;
 }
 
 /* footer */
