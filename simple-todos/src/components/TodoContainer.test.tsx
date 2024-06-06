@@ -4,7 +4,7 @@ import { TodoContainer } from "./TodoContainer";
 
 test("renders TodoContainer component", () => {
   render(<TodoContainer />);
-  expect(screen.getByText("Todos")).toBeInTheDocument();
+  expect(screen.getByText("todos")).toBeInTheDocument();
 });
 
 test("adds a new todo", () => {
