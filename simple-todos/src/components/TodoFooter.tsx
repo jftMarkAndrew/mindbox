@@ -16,29 +16,36 @@ export const TodoFooter: React.FC<TodoFooterProps> = ({
   const activeCount = todos.filter((todo) => !todo.done).length;
 
   return (
-    <div>
-      <span>
+    <div className="footer">
+      <span className="footer-counter">
         {activeCount} {activeCount === 1 ? "item" : "items"} left
       </span>
-      <button
-        onClick={() => setFilter(Filter.All)}
-        disabled={filter === Filter.All}
-      >
-        Show All
+      <div className="footer-filters">
+        <button
+          className={filter === Filter.All ? "active" : ""}
+          onClick={() => setFilter(Filter.All)}
+          disabled={filter === Filter.All}
+        >
+          Show All
+        </button>
+        <button
+          className={filter === Filter.Active ? "active" : ""}
+          onClick={() => setFilter(Filter.Active)}
+          disabled={filter === Filter.Active}
+        >
+          Active
+        </button>
+        <button
+          className={filter === Filter.Completed ? "active" : ""}
+          onClick={() => setFilter(Filter.Completed)}
+          disabled={filter === Filter.Completed}
+        >
+          Completed
+        </button>
+      </div>
+      <button className="footer-clear" onClick={deleteCompleted}>
+        Clear Completed
       </button>
-      <button
-        onClick={() => setFilter(Filter.Active)}
-        disabled={filter === Filter.Active}
-      >
-        Active
-      </button>
-      <button
-        onClick={() => setFilter(Filter.Completed)}
-        disabled={filter === Filter.Completed}
-      >
-        Completed
-      </button>
-      <button onClick={deleteCompleted}>Clear Completed</button>
     </div>
   );
 };

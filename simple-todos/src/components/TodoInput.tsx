@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 interface TodoInputProps {
   addTodo: (text: string) => void;
@@ -15,14 +15,17 @@ export const TodoInput: React.FC<TodoInputProps> = ({ addTodo }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="todo-input-form">
       <input
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="What needs to be done?"
+        className="todo-input"
       />
-      <button type="submit">Add</button>
+      <button type="submit" className="add-button">
+        Add
+      </button>
     </form>
   );
 };

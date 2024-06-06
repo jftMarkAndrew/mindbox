@@ -32,22 +32,25 @@ export const TodoContainer: React.FC = () => {
 
   return (
     <div className="container">
-      <h1>Todos</h1>
-      <TodoInput addTodo={addTodo} />
-      {filteredTodos.map((todo, index) => (
-        <TodoItem
-          key={index}
-          index={index}
-          todo={todo}
-          toggleTodo={toggleTodo}
-        />
-      ))}
-      <TodoFooter
-        todos={todos}
-        filter={filter}
-        setFilter={setFilter}
-        deleteCompleted={deleteCompleted}
-      />
+      <h1 className="title">todos</h1>
+      <div className="todos">
+        <div className="todo">
+          <TodoInput addTodo={addTodo} />
+        </div>
+        {filteredTodos.map((todo, index) => (
+          <div className="todo" key={index}>
+            <TodoItem index={index} todo={todo} toggleTodo={toggleTodo} />
+          </div>
+        ))}
+        <div className="todo">
+          <TodoFooter
+            todos={todos}
+            filter={filter}
+            setFilter={setFilter}
+            deleteCompleted={deleteCompleted}
+          />
+        </div>
+      </div>
     </div>
   );
 };
