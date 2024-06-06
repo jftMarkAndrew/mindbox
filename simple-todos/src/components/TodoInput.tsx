@@ -20,7 +20,7 @@ export const TodoInput: React.FC<TodoInputProps> = ({ addTodo }) => {
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Add a new todo"
+        placeholder="What needs to be done?"
       />
       <button type="submit">Add</button>
     </form>
