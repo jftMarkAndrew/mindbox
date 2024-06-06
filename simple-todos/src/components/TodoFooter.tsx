@@ -17,7 +17,9 @@ export const TodoFooter: React.FC<TodoFooterProps> = ({
 
   return (
     <div>
-      <span>{activeCount} items left</span>
+      <span>
+        {activeCount} {activeCount === 1 ? "item" : "items"} left
+      </span>
       <button
         onClick={() => setFilter(Filter.All)}
         disabled={filter === Filter.All}

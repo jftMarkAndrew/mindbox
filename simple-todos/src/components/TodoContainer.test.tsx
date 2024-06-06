@@ -79,7 +79,7 @@ test("filters active todos", () => {
   expect(screen.queryByText("Completed Todo")).not.toBeInTheDocument();
 });
 
-test("updates active todo count", () => {
+test("updates active todo count (plural)", () => {
   render(<TodoContainer />);
   const input = screen.getByPlaceholderText("What needs to be done?");
   const button = screen.getByText("Add");
@@ -94,7 +94,24 @@ test("updates active todo count", () => {
 
   expect(
     screen.getByText((_, element) => {
-      return element?.textContent === "1 items left";
+      return element?.textContent === "1 item left";
+    })
+  ).toBeInTheDocument();
+});
+
+test("updates active todo count (singular)", () => {
+  render(<TodoContainer />);
+  const input = screen.getByPlaceholderText("What needs to be done?");
+  const button = screen.getByText("Add");
+
+  fireEvent.change(input, { target: { value: "Active Todo 1" } });
+  fireEvent.click(button);
+  fireEvent.change(input, { target: { value: "Active Todo 2" } });
+  fireEvent.click(button);
+
+  expect(
+    screen.getByText((_, element) => {
+      return element?.textContent === "2 items left";
     })
   ).toBeInTheDocument();
 });
