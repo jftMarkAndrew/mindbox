@@ -1,7 +1,7 @@
 html,
 body {
   margin: 0;
-  padding: 0;
+  padding: 1em;
   font-family: Arial, sans-serif;
   background-color: #f1f2f7;
   color: #161616;
@@ -18,7 +18,6 @@ body {
 
 .container {
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,7 +29,7 @@ body {
   width: 100%;
   max-width: 640px;
   border-radius: 4px;
-  box-shadow: 0 0 1em #16161640;
+  box-shadow: 0 0 1em #16161624;
 }
 
 .todo {
@@ -104,7 +103,7 @@ body {
   * {
     min-width: fit-content;
     flex: 1;
-    font-size: 0.83em;
+    font-size: 0.8em;
     color: #161616;
   }
 }
@@ -132,4 +131,30 @@ body {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  html,
+  body {
+    padding: 0;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 4em;
+  }
+
+  .todos {
+    box-shadow: none;
+  }
+
+  .todo {
+    padding: 0.25em;
+  }
+
+  .footer {
+    * {
+      font-size: 0.6em;
+    }
+  }
 }
