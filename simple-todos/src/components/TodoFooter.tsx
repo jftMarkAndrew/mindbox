@@ -1,7 +1,9 @@
+import { Filter } from "../types/filter";
+
 interface TodoFooterProps {
   todos: { text: string; done: boolean }[];
-  filter: "all" | "active" | "completed";
-  setFilter: (filter: "all" | "active" | "completed") => void;
+  filter: Filter.All | Filter.Active | Filter.Completed;
+  setFilter: (filter: Filter.All | Filter.Active | Filter.Completed) => void;
   deleteCompleted: () => void;
 }
 
@@ -16,22 +18,25 @@ export const TodoFooter: React.FC<TodoFooterProps> = ({
   return (
     <div>
       <span>{activeCount} items left</span>
-      <button onClick={() => setFilter("all")} disabled={filter === "all"}>
+      <button
+        onClick={() => setFilter(Filter.All)}
+        disabled={filter === Filter.All}
+      >
         Show All
       </button>
       <button
-        onClick={() => setFilter("active")}
-        disabled={filter === "active"}
+        onClick={() => setFilter(Filter.Active)}
+        disabled={filter === Filter.Active}
       >
-        Show Active
+        Active
       </button>
       <button
-        onClick={() => setFilter("completed")}
-        disabled={filter === "completed"}
+        onClick={() => setFilter(Filter.Completed)}
+        disabled={filter === Filter.Completed}
       >
-        Show Completed
+        Completed
       </button>
-      <button onClick={deleteCompleted}>Delete Completed</button>
+      <button onClick={deleteCompleted}>Clear Completed</button>
     </div>
   );
 };
